@@ -1,15 +1,15 @@
-'use strict';
+'use strict'
 
-var fs = require('fs');
-var path = require('path');
+var fs = require('fs')
+var path = require('path')
 
 exports.get = function(event, context, callback) {
-  var contents = fs.readFileSync(`public${path.sep}index.html`);
+  //var contents = fs.readFileSync(`public${path.sep}index.html`)
   var result = {
     statusCode: 200,
-    body: contents.toString(),
-    headers: {'content-type': 'text/html'}
-  };
+    body: JSON.stringify({ TEST: 1 }),
+    headers: { 'content-type': 'application/json; charset=utf-8' },
+  }
 
-  callback(null, result);
-};
+  callback(null, result)
+}
